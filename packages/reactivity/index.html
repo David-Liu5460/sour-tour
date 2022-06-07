@@ -31,6 +31,24 @@
     obj.name = 'xxxxx';
 
 
+    let data = { name: 'aaa'}
+    let obj = new Proxy(data, {
+      get (target, key) {
+        return target[key]
+      },
+      set (target, key, val) {
+        console.log('set')
+        target[key] = val
+        //  render(); 
+      }
+
+    })
+    document.querySelector('#app').innerHTML = '你好呀' + obj.name
+
+    
+
+
+
 
     // function add(a, b) { return a + b; }
     // console.log((add(1,2) === 3));
